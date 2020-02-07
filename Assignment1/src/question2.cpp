@@ -28,8 +28,6 @@ void maximiseProfit(vector<int> v){
     cout<<buy_day+1<<endl;
 }
 
-
-
 int main(){
     int n;
     cin>>n;
