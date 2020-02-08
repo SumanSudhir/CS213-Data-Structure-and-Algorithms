@@ -1,15 +1,14 @@
-#include<bits/stdc++.h>
+#include<iostream>
 
 using namespace std;
-int chocolatePacking(vector<int>v){
-    vector<float> ppc;
-    for(int i=0;i<v.size();i++){
-        ppc.push_back(v[i]/(i+1));
+int chocolatePacking(int n, int v[]){
+    float ppc[n];
+    for(int i=0;i<n;i++){
+        ppc[i] = v[i]/(i+1);
     }
-
-    int n = ppc.size();
+    
     int price = 0;
-    int count = v.size();
+    int count = n;
     while(count !=0){
         int max = 0;
         for(int i=0;i<n;i++){
@@ -28,12 +27,12 @@ int chocolatePacking(vector<int>v){
 int main(){
     int n;
     cin>>n;
-    vector<int> revenue;
+    int revenue[n];
     for(int i=0;i<n;i++){
         int temp;
         cin>>temp;
-        revenue.push_back(temp);
+        revenue[i] = temp;
     }
-    int x = chocolatePacking(revenue);
+    int x = chocolatePacking(n,revenue);
     cout<<x<<endl;
 }

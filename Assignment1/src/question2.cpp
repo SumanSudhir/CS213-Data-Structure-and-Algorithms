@@ -1,19 +1,19 @@
-#include<bits/stdc++.h>
+#include<iostream>
 
 using namespace std;
 
-void maximiseProfit(vector<int> v){
+void maximiseProfit(int n, int v[]){
     int buy = v[0];
     int buy_day = 0;
-    int sell = v[v.size()-1];
+    int sell = v[n-1];
     int best_deal = sell-buy;
 
-    for(int i=0;i<v.size();i++){
+    for(int i=0;i<n;i++){
         int temp_buy_day,temp_sell_day;
         if(buy>v[i]){
             buy = v[i];
             temp_buy_day = i;
-            sell = v[v.size()-1];
+            sell = v[n-1];
         }
         if( i > temp_buy_day && sell<v[i]){
             sell = v[i];
@@ -31,11 +31,11 @@ void maximiseProfit(vector<int> v){
 int main(){
     int n;
     cin>>n;
-    vector<int> price;
+    int price[n];
     int temp;
     for(int i=0;i<n;i++){
         cin>>temp;
-        price.push_back(temp);
+        price[i] = temp;
     }
-    maximiseProfit(price);
+    maximiseProfit(n,price);
 }
